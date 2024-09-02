@@ -114,7 +114,7 @@ init python:
                     self.curr_grad = i
                     break
             # Determine the current range (for color_gradient func later)
-            if self.curr_grad is 0:
+            if self.curr_grad == 0:
                 self.curr_range = self.col_list[0][2]
             else:
                 self.curr_range = self.col_list[self.curr_grad][2] - self.col_list[self.curr_grad - 1][2]

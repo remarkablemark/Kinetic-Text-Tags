@@ -34,13 +34,13 @@ label start:
     # I know these first couple are a bit of an eye sore but wanted to show here how to apply styles to the effects.
     # And how previous styling won't be applied through them...
     eb "Here is some {bt=h10-s0.5-p10.0}wavy bouncey{/bt} text"
-    e "Here is some {sc}{b}{i}{font=FOT-PopJoyStd-B.otf}{=test_style}scared{/b} sha{/font}key{/i}{/=test_style}{/sc} text"
+    e "Here is some {sc}{=test_style}{i}{font=FOT-PopJoyStd-B.otf}{b}scared{/b} sha{/font}key{/i}{/=test_style}{/sc} text"
     e "Here is some {rotat}spinning rotation{/rotat} text"
     e "Here is a {gradient=#ff0000-#00ff00}fancy gradient{/gradient} {gradient=#00ff00-#0000ff}with every color{/gradient} {gradient=#0000ff-#ff0000}of the rainbow{/gradient}!!"
     e "Here is a {gradient2=6-#ff0000-#ffff00-10-#ffff00-#00ff00-10-#00ff00-#00ffff-10-#00ffff-#0000ff-10-#0000ff-#ff00ff-10-#ff00ff-#ff0000-10}fancy gradient with every color of the rainbow{/gradient2}!!"
     e "{fi=0-0.5}Here is some fade in text{/fi}"
     e "Here is some more selective {fi=13-1.5-20}fade in{/fi} text"
-    e "Here is some {move}{b}moveable sliding{/move} text. Move your mouse near it to see!!"
+    e "Here is some {move}{b}moveable sliding{/b}{/move} text. Move your mouse near it to see!!"
     e "I'm having conflicting feelings about this..."
     e "{bt=2}There still seems to be some bugs. Like if I just keep typing this, this text will continue off the screen and you won't be able to read it.{/bt}"
     e "{bt=2}But if we insert a paragraph tag into our line, we'll be able to tell \nthe text displayable to make a new paragraph to avoid the issue! \nHuzzah!!{/bt}"
@@ -49,7 +49,7 @@ label start:
     e "{chaos}Helllllp Mmeeeee!!!{/chaos}"
     # This is mostly to demonstrate that the tags can stack. However this does cause lag the more you apply
     # If you wish to apply this many, I advise you make a single Class that does all the effects itself or...
-    e "{bt}{sc}{rotat}{chaos}Oh god NOooooo{/rotat}{/sc}{/bt}"
+    e "{bt}{sc}{rotat}{chaos}Oh god NOooooo{/chaos}{/rotat}{/sc}{/bt}"
     # You could do this. Have them nest directly without as many render callbacks through Text displayables
     e "{omega=BT=5@SC=10@FI=20-0.5@ROT=400@CH}Oh god NOooooo{/omega}"
     e "{bt=20}{fi=20-1.5}Must{/fi} {rotat}gain{/rotat} {sc=10}control!!! For [playername]!!!{/sc}{/bt}"

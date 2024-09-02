@@ -168,12 +168,17 @@ init python:
             # Get_Placement returns a tuple containing:
             # xpos, ypos, xanchor, yanchor, xoffset, yoffset, subpixel
             child_pos = self.child.state.get_placement()
+
             # Sometimes the output of get_placement has some None values in there.
             # So use this to get safe output.
             def none_to_float(param):
                 if param is None:
                     return 0.0
-                return param
+                elif isinstance(param, position):
+                    return param.absolute
+                else:
+                    return param
+
             child_xpos = none_to_float(child_pos[0]) + none_to_float(child_pos[4])
             child_ypos = none_to_float(child_pos[1]) + none_to_float(child_pos[5])
 
@@ -240,7 +245,7 @@ init python:
         # Check for an offset
           # See if we want to use the current cps settings
         if arg_list[0] == "#" or arg_list[0] == "-#":
-            if preferences.text_cps is not 0:
+            if preferences.text_cps != 0:
                 time_offset = (1.0 / preferences.text_cps)
                 if arg_list[0] == "-#":
                     time_offset = time_offset * -1.0
